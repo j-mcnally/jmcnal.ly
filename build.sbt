@@ -1,11 +1,11 @@
-name := """PlaySlickAngularBootstrapH2TestsExample"""
+name := """jmcnallyWebsite"""
 
 version := "0.1.3"
 
 // Scala Version, Play supports both 2.10 and 2.11
 scalaVersion := "2.11.2"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+lazy val root = (project in file(".")).enablePlugins(PlayScala, net.litola.SassPlugin)
 
 val akkaVersion = "2.3.3"
 
@@ -25,7 +25,7 @@ libraryDependencies ++= Seq(
   "joda-time" % "joda-time" % "2.3",
   // Database
   "com.typesafe.play" %% "play-slick" % "0.8.0-RC1",
-  "mysql" % "mysql-connector-java" % "5.1.31",
+  "org.postgresql" % "postgresql" % "9.3-1100-jdbc4",
   // test
   "org.scalatest" %% "scalatest" % "2.2.0" % "test",
   "com.h2database" % "h2" % "1.4.179" % "test"
@@ -74,6 +74,3 @@ RjsKeys.paths += ("jsRoutes" -> ("/jsroutes" -> "empty:"))
 // ~~~
 //JshintKeys.config := ".jshintrc"
 
-includeFilter in (Assets, LessKeys.less) := "*.less"
-
-excludeFilter in (Assets, LessKeys.less) := "_*.less"
